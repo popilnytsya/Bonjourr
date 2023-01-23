@@ -7,7 +7,13 @@ import { Local } from './types/local'
 
 import storage from './storage'
 import notes from './features/notes'
-import moveElements from './moveElements'
+import clock from './features/clock'
+import weather from './features/weather'
+import moveElements from './features/move'
+import customFont from './features/fonts'
+import quickLinks from './features/quicklinks'
+
+import { modifyWeightOptions, safeFont } from './helpers'
 
 import {
 	$,
@@ -32,24 +38,18 @@ import {
 import {
 	toggleWidgets,
 	backgroundFilter,
-	clock,
 	customCss,
-	customFont,
 	darkmode,
 	favicon,
 	hideElem,
 	linksImport,
 	localBackgrounds,
-	modifyWeightOptions,
-	quickLinks,
 	quotes,
-	safeFont,
 	searchbar,
 	tabTitle,
 	textShadow,
 	traduction,
 	unsplash,
-	weather,
 } from './index'
 
 type Langs = keyof typeof langList

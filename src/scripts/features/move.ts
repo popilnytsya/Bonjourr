@@ -1,9 +1,9 @@
 import clamp from 'lodash.clamp'
 import clonedeep from 'lodash.clonedeep'
-import storage from './storage'
-import { Move, MoveKeys, MoveItem, Sync } from './types/sync'
-import { syncDefaults, clas, $ } from './utils'
-import { toggleWidgets } from '.'
+import storage from '../storage'
+import { Move, MoveKeys, MoveItem, Sync } from '../types/sync'
+import { syncDefaults, clas, $ } from '../utils'
+import { toggleWidgets } from '..'
 
 // ┌──────────────────────────────────────┐
 // │   ┌────────────┐  ┌────────────┐     │
@@ -489,7 +489,7 @@ export default function moveElements(
 				storage.sync.set({ move: move })
 			}
 
-			function layoutChange(selection?: Move['selection'],) {
+			function layoutChange(selection?: Move['selection']) {
 				if (!selection && button) {
 					// button dataset is wrong somehow
 					if (!((button.dataset.layout || 'triple') in move.layouts)) return
@@ -565,7 +565,6 @@ export default function moveElements(
 			}
 
 			function elementSelection() {
-				
 				const layout = move.layouts[move.selection]
 
 				removeSelection()
@@ -581,13 +580,11 @@ export default function moveElements(
 				buttonControl.span(id)
 				buttonControl.grid(id)
 
-
-
 				document.querySelector('#move-overlay-' + id)!.classList.add('selected') // add clicked
 
-				$('element-mover')?.classList.add('active');
+				$('element-mover')?.classList.add('active')
 
-				document.querySelector('#mover-titles h2')!.innerHTML = `${id} widget`;
+				document.querySelector('#mover-titles h2')!.innerHTML = `${id} widget`
 				activeID = id
 			}
 
@@ -602,7 +599,7 @@ export default function moveElements(
 					}
 
 					dominterface?.classList.toggle('move-edit')
-					$('element-mover')?.classList.remove('active');
+					$('element-mover')?.classList.remove('active')
 					removeSelection()
 				}
 
@@ -703,7 +700,7 @@ export default function moveElements(
 	// Init
 
 	if (init) {
-		(function initilisation() {
+		;(function initilisation() {
 			// Detect small width on startup
 			if (window.innerWidth < 764) init.selection = 'single'
 
